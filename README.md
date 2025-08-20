@@ -42,3 +42,4 @@ Projeto de um *formulário moderno e responsivo, criado com **HTML5* e *CSS3*, c
 ---
 
 ⭐ Se este projeto te ajudou, não esqueça de deixar um *star* aqui no GitHub!
+Por.: Daniella Trindade 👾
