@@ -1,0 +1,163 @@
+/* ---------- Design Tokens ---------- */
+:root{
+  --bg: #0b0f1a;
+  --bg-soft: #0f1424;
+  --card: #121a2b;
+  --text: #e8eefc;
+  --muted: #b7c3e0;
+  --brand: #6ea8fe;       /* azul suave */
+  --brand-2: #b28dff;     /* roxo suave */
+  --ring: #88c0ff;
+  --ok: #7ee787;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,.35);
+}
+
+*{ box-sizing:border-box; }
+html,body{ height:100%; }
+
+body{
+  margin:0;
+  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(110,168,254,.20), transparent 60%),
+    radial-gradient(800px 400px at 90% 0%, rgba(178,141,255,.18), transparent 60%),
+    linear-gradient(180deg, var(--bg) 0%, #0a1020 100%);
+  color:var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ---------- Layout ---------- */
+.container{
+  max-width: 880px;
+  margin: clamp(24px, 6vw, 72px) auto;
+  padding: 0 20px;
+}
+
+.hero{
+  text-align:center;
+  margin-bottom: 28px;
+}
+
+h1{ font-size: clamp(28px, 4vw, 40px); margin:0 0 6px; font-weight:800; letter-spacing:.2px; }
+h2{ font-size: clamp(18px, 2.6vw, 22px); margin:0 0 4px; font-weight:600; color:var(--muted); }
+h3{ font-size: clamp(15px, 2.2vw, 18px); margin: 0; font-weight:600; color: var(--ok); }
+
+.intro{
+  text-align:center;
+  margin: 20px 0 26px;
+  color: var(--muted);
+}
+.intro p{ margin: 6px 0; }
+
+/* ---------- Card/Form ---------- */
+.card{
+  background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.0)) padding-box,
+              radial-gradient(120% 100% at 0% 0%, rgba(110,168,254,.25), rgba(178,141,255,.20)) border-box,
+              var(--card);
+  border: 1px solid rgba(255,255,255,.12);
+  backdrop-filter: blur(6px);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: clamp(18px, 4vw, 28px);
+}
+
+.field{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  margin-bottom:18px;
+}
+
+label{
+  font-weight:600;
+  color: var(--text);
+}
+
+input{
+  width:100%;
+  padding: 14px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: var(--bg-soft);
+  color: var(--text);
+  outline: none;
+  transition: border-color .2s, box-shadow .2s, transform .04s;
+}
+
+input::placeholder{ color: #95a1bf; }
+
+input:focus{
+  border-color: var(--ring);
+  box-shadow: 0 0 0 4px rgba(136,192,255,.18);
+}
+
+input:invalid:focus{
+  border-color: #ff9aa2;
+  box-shadow: 0 0 0 4px rgba(255,154,162,.18);
+}
+
+.hint{
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* ---------- Actions ---------- */
+.actions{
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap:12px;
+  margin-top: 10px;
+}
+
+button{
+  appearance:none;
+  border:none;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-weight:700;
+  color: var(--text);
+  cursor:pointer;
+  transition: transform .06s ease, filter .2s ease, opacity .2s ease, box-shadow .2s ease;
+}
+
+button:active{ transform: translateY(1px) scale(.99); }
+
+/* estilos dos 3 botões */
+button.primary{
+  background: linear-gradient(135deg, var(--brand), var(--brand-2));
+  box-shadow: 0 8px 18px rgba(110,168,254,.28);
+}
+button.primary:hover{ filter: brightness(1.06); }
+
+button.ghost{
+  background: transparent;
+  border: 1px solid rgba(255,255,255,.16);
+}
+button.ghost:hover{ background: rgba(255,255,255,.06); }
+
+button.link{
+  background: transparent;
+  color: var(--muted);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+button.link:hover{ color: var(--text); }
+
+/* ---------- Extras ---------- */
+.legal{
+  margin-top: 14px;
+  font-size: 13px;
+  color: var(--muted);
+}
+.legal a{
+  color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ---------- Responsivo ---------- */
+@media (max-width: 720px){
+  .actions{ grid-template-columns: 1fr; }
+}
